@@ -84,8 +84,8 @@ app.get('/filter/:mealId',async(req,res) => {
 
 //get all details
 app.get('/details/:id', async(req,res) => {
-    let id = new Mongo.ObjectId(req.params.id)
-    let query = {_id:id}
+     let id = Number(req.params.id);
+     let query = {restaurant_id:id}
     let collection = "restaurants";
     let output = await getData(collection,query);
     res.send(output)
